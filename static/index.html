@@ -1,0 +1,108 @@
+<!-- static/index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>压测调度调试台</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 16px; max-width: 1100px; }
+    select, button { padding: 6px 10px; margin: 4px; }
+    #log { width: 100%; height: 440px; font-family: Consolas, monospace; font-size: 12px; }
+    .row { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Appium 压测调度 · 调试台</h2>
+  <div class="row">
+    设备 <select id="device"></select>
+    套件 <select id="suite"></select>
+    <button onclick="loadMeta()">刷新</button>
+    <button onclick="startJob()">开始执行</button>
+    <button onclick="stopJob()">停止</button>
+    <button onclick="loadReports()">查看报告</button>
+  </div>
+  <div class="row">Job: <b id="jobId">-</b> 状态: <span id="status">-</span></div>
+  <textarea id="log" readonly></textarea>
+  <pre id="reports"></pre>
+
+  <script>
+    const API = "";
+    let currentJobId = null, ws = null;
+
+    async function loadMeta() {
+      const [devs, suites] = await Promise.all([
+        fetch(API + "/api/devices").then(r => r.json()),
+        fetch(API + "/api/suites").then(r => r.json()),
+      ]);
+      const dsel = document.getElementById("device");
+      const ssel = document.getElementById("suite");
+      dsel.innerHTML = ssel.innerHTML = "";
+      (devs.devices || []).filter(d => d.status === "device").forEach(d => {
+        const o = document.createElement("option");
+        o.value = d.udid;
+        o.textContent = d.udid + (d.model ? ` (${d.model})` : "");
+        dsel.appendChild(o);
+      });
+      (suites.suites || []).forEach(s => {
+        const o = document.createElement("option");
+        o.value = s.name;
+        o.textContent = `${s.name} [${s.current_app || ""}]`;
+        ssel.appendChild(o);
+      });
+    }
+
+    function appendLog(line) {
+      const el = document.getElementById("log");
+      el.value += line + "\n";
+      el.scrollTop = el.scrollHeight;
+    }
+
+    async function startJob() {
+      const device_udid = document.getElementById("device").value;
+      const suite = document.getElementById("suite").value;
+      if (!device_udid || !suite) return alert("请选择设备和套件");
+      document.getElementById("log").value = "";
+      const res = await fetch(API + "/api/jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ suite, device_udid, params: {} }),
+      }).then(r => r.json());
+      currentJobId = res.id;
+      document.getElementById("jobId").textContent = res.id;
+      document.getElementById("status").textContent = res.status;
+      if (ws) ws.close();
+      const proto = location.protocol === "https:" ? "wss:" : "ws:";
+      const host = location.host;
+      ws = new WebSocket(`${proto}//${host}/ws/jobs/${res.id}`);
+      ws.onmessage = (ev) => {
+        const msg = JSON.parse(ev.data);
+        if (msg.type === "log") appendLog(msg.line);
+        if (msg.type === "done") {
+          document.getElementById("status").textContent = "done";
+          refreshStatus();
+        }
+      };
+    }
+
+    async function stopJob() {
+      if (!currentJobId) return;
+      await fetch(API + `/api/jobs/${currentJobId}/stop`, { method: "POST" });
+      appendLog("[系统] 已请求停止");
+    }
+
+    async function refreshStatus() {
+      if (!currentJobId) return;
+      const j = await fetch(API + `/api/jobs/${currentJobId}`).then(r => r.json());
+      document.getElementById("status").textContent =
+        j.status + (j.message ? ` (${j.message})` : "");
+    }
+
+    async function loadReports() {
+      const data = await fetch(API + "/api/reports").then(r => r.json());
+      document.getElementById("reports").textContent = JSON.stringify(data, null, 2);
+    }
+
+    loadMeta();
+  </script>
+</body>
+</html>

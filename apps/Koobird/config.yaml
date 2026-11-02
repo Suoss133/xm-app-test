@@ -1,0 +1,133 @@
+pages:
+  login:
+    # 区域
+    region_button: (AppiumBy.ID, "com.koobird.android:id/tv_region")
+    # 地区输入框
+    region_input: (AppiumBy.ID, "com.koobird.android:id/et_search")
+    # 选择地区
+    region_select: (AppiumBy.XPATH, '//android.widget.TextView[@resource-id="com.koobird.android:id/tv_city_name" and @text="{}"]')
+    # 用户邮箱
+    email_input: (AppiumBy.XPATH, '//android.widget.EditText[@text="输入您的邮箱"]')
+    # 用户密码
+    password_input: (AppiumBy.XPATH, "//android.widget.EditText[@text='输入密码']")
+    # 记住密码
+    remember_password: (AppiumBy.ID, "com.koobird.android:id/iv_keep_password")
+    # 忘记密码
+    forget_password: (AppiumBy.ID, "com.koobird.android:id/tv_forgot_password")
+    # 登录按钮
+    login_button: (AppiumBy.ID, "com.koobird.android:id/text_login_button")
+    # 注册账号
+    register_account: (AppiumBy.ID, "com.koobird.android:id/text_login_to_register")
+    # 同意协议
+    user_agree: (AppiumBy.ID, "com.koobird.android:id/btn_selector_pir")
+    # 邮箱格式错误信息
+    email_error_message: (AppiumBy.ID, "com.koobird.android:id/tv_error")
+    # 系统弹窗提示信息
+    system_window_message: (AppiumBy.ID, "com.koobird.android:id/tv_text")
+    # 关闭系统弹窗
+    close_system_window: (AppiumBy.ID, "com.koobird.android:id/tv_confirm")
+    # 使用权限信息
+    permission_allow: (AppiumBy.ID, "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+  home:
+    # 首页唯一标识
+    home_page_identifier: (AppiumBy.ID, "com.koobird.android:id/text_home_my_family")
+    # 直播
+    #live_button: (AppiumBy.XPATH, '//android.widget.TextView[@resource-id="com.Koobird.android:id/tv_dev_name" and @text="{}"]/../../..//android.widget.ImageView[@resource-id="com.Koobird.android:id/iv_live_view"]')
+    live_button: (AppiumBy.ID, 'com.koobird.android:id/iv_live_view')
+    # 添加设备
+    add_device_button: (AppiumBy.ID, "com.koobird.android:id/image_home_top_right3")
+    # 设备设置
+    setting_device_button: (AppiumBy.XPATH, '//android.view.ViewGroup[@resource-id="com.koobird.android:id/layout_setting"]')
+
+  video_detail:
+    # 出图失败提示
+    error_tips: (AppiumBy.ID, 'com.koobird.android:id/tv_title_tips')
+    # 加载状态
+    loading: (AppiumBy.ID, "com.koobird.android:id/layout_loading")
+    # 关闭错误弹窗
+    close_error_tips: (AppiumBy.ID, 'com.koobird.android:id/tv_cancel')
+    # 提示弹窗
+    tips: (AppiumBy.XPATH, '//android.widget.TextView[@text="长时间观看实时画面将加速设备的电量消耗，你想继续吗?"]')
+    # 继续观看
+    continue_watching: (AppiumBy.ID, 'com.xm.support.android:id/tv_cancel')
+  add_device:
+    # 加载状态：
+    loading: (AppiumBy.ID, "com.koobird.android:id/lav_loading")
+    # 选择蓝牙设备
+    select_bluetooth_device_sn: (AppiumBy.XPATH, '//android.widget.TextView[@resource-id="com.koobird.android:id/tv_dev_name" and @text="{}"]')
+
+    # 设备列表
+    device_list: (AppiumBy.ID, 'com.koobird.android:id/tv_dev_name')
+    # 选择我的网络
+    select_my_network: (AppiumBy.ID, "com.koobird.android:id/tv_phone_wifi")
+    # 输入wifi名称
+    input_wifi_name: (AppiumBy.ID, "com.koobird.android:id/et_wifi")
+    # 选择蓝牙设备
+    select_bluetooth_device: (AppiumBy.XPATH, "//android.widget.TextView[@text='选择蓝牙设备']")
+    # 输入wifi密码
+    input_wifi_password: (AppiumBy.ID, "com.koobird.android:id/et_password")
+    # 手动输入wifi按钮
+    manual_input_wifi_button: (AppiumBy.ID, "com.koobird.android:id/tv_manually_enter")
+    # 加入wifi
+    join_wifi_button: (AppiumBy.ID, "com.koobird.android:id/tv_confirm")
+    # 连接成功
+    connect_success: (AppiumBy.XPATH, "//android.widget.TextView[@text='连接成功']")
+    # 连接成功信息2
+    connect_success_info2: (AppiumBy.XPATH,'/android.widget.TextView[@text="设置您的设备名称"]')
+    # 连接失败
+    connect_failed: (AppiumBy.ID, "com.xm.support.android:id/tv_title")
+    # 蓝牙设备列表页面标识
+    bluetooth_page_identifier: (AppiumBy.ID, "com.koobird.android:id/lyric_view")
+    # wifi配置页标识
+    wifi_page_identifier: (AppiumBy.ID, "com.koobird.android:id/tv_select_tips")
+    #配网状态标识
+    connect_page_identifier: (AppiumBy.ID, "com.koobird.android:id/tv_connect_state_tips")
+    #确认加入
+    confirm_join_wifi: (AppiumBy.ID, "com.koobird.android:id/tv_confirm")
+
+    # 输入设备名称
+    input_device_name: (AppiumBy.ID, "com.koobird.android:id/et_name")
+    # 确定设备名称
+    confirm_device_name_button: (AppiumBy.ID, "com.koobird.android:id/bt_confirm")
+    # 安装向导
+    install_guide: (AppiumBy.XPATH, '//android.widget.TextView[@text="安装向导"]')
+    # 关闭安装先导
+    close_install_guide: (AppiumBy.XPATH, '//android.widget.LinearLayout[@resource-id="com.xm.support.android:id/view_title_bar"]/android.widget.LinearLayout/android.widget.ImageView[2]')
+
+  setting_device:
+    # 页面标题
+    setting_page_title: (AppiumBy.XPATH, '//android.widget.TextView[@text="设置"]')
+    # 删除设备
+    delect_device: (AppiumBy.XPATH, "//*[@id='app']/div/div[6]/button/div")
+    # 确认删除设备
+    confirm_delect_device: (AppiumBy.XPATH, "//html/body/div[2]/div/div/div/div[3]/div[2]")
+    # 设备设置页面标识
+    setting_device_page_identifier: (AppiumBy.XPATH, '//android.view.View[@resource-id="app"]/android.view.View[4]')
+    # 设备状态
+    device_status: (AppiumBy.XPATH, '//*[@id="app"]/div/div[1]/div[2]/div[1]/div/span')
+
+
+  event:
+    # 卡录
+    sd_record: (AppiumBy.ID, 'com.xm.support.android:id/tv_sdcard')
+    # 视频加载状态
+    loading: (AppiumBy.XPATH, '//android.widget.TextView[@text="连接中"]')
+    # 事件时间
+    event_time: (AppiumBy.XPATH, "//android.widget.LinearLayout[@resource-id='com.xm.support.android:id/layout_timeline_time']/android.widget.TextView[@resource-id='com.xm.support.android:id/tv_video_time']")
+    # 下载按钮
+    download_button: (AppiumBy.ID, "com.xm.support.android:id/iv_download")
+    # 录像片段时段
+    record_time_period: (AppiumBy.XPATH, '//android.widget.TextView[@resource-id="com.xm.support.android:id/tv_title"]')
+    # 下载状态
+    download_status: (AppiumBy.ID,"com.xm.support.android:id/tv_tips")
+    # ----------下载失败弹窗----------
+    # 取消下载
+    download_fail_cancel: (AppiumBy.ID,"com.xm.support.android:id/tv_cancel")
+    # 重新下载
+    download_fail_retry: (AppiumBy.ID,"com.xm.support.android:id/tv_retry")
+    # ----------下载成功弹窗----------
+    # 确定
+    download_success_confirm: (AppiumBy.ID,"com.xm.support.android:id/tv_finish")
+    # 分享
+    download_success_share: (AppiumBy.ID,"com.xm.support.android:id/tv_share")
+

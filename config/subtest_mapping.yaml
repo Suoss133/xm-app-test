@@ -1,0 +1,16 @@
+# 子测试项映射配置
+subtest_mapping:
+  SubUserErrorFormatLogin:
+    module: "tests.LoginEmail.sub_err_email_format"
+    class: "TestSubErrEmailFormat"
+    method: "test_SubUserErrorFormatLogin"
+
+  SubUserErrorPasswordLogin:
+    module: "tests.LoginEmail.sub_err_password"
+    class: "TestSubErrPassword"
+    method: "test_SubUserErrorPasswordLogin"
+
+  sub_popup_add_device:
+    module: "tests.HomeAddDevice.sub_popup_add_device"
+    class: "TestSubPopupAddDevice"
+    method: "test_sub_popup_add_device"

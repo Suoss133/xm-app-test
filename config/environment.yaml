@@ -1,0 +1,54 @@
+environments:
+  Koocam:
+    platform_name: Android
+    automation_name: UiAutomator2
+    app_package: com.xm.support.android
+    app_activity: com.xm.support.android.activity.SplashActivity
+    no_reset: true
+    full_reset: false
+    new_command_timeout: 3600
+    chromedriver_autodownload: true
+    appium_server: http://127.0.0.1:4723
+  Humbirdy:
+    platform_name: Android
+    automation_name: UiAutomator2
+    app_package: com.birdlife.android
+    app_activity: com.birdlife.android.activity.SplashActivity
+    no_reset: true
+    full_reset: false
+    new_command_timeout: 3600
+    chromedriver_executable: driver/chromedriver.exe
+    chromedriver_autodownload: true
+    appium_server: http://127.0.0.1:4723
+  Koobird:
+    platform_name: Android
+    automation_name: UiAutomator2
+    app_package: com.koobird.android
+    app_activity: com.koobird.android.activity.SplashActivity
+    no_reset: true
+    full_reset: false
+    new_command_timeout: 3600
+    chromedriver_executable: driver/chromedriver.exe
+    chromedriver_autodownload: true
+    appium_server: http://127.0.0.1:4723
+  baseus:
+    platform_name: Android
+    automation_name: UiAutomator2
+    app_package: com.baseus.security.ipc
+    app_activity: com.baseus.security.ipc/.MainActivity
+    no_reset: true
+    full_reset: false
+    new_command_timeout: 3600
+    chromedriver_executable: driver/chromedriver.exe
+    chromedriver_autodownload: true
+    appium_server: http://127.0.0.1:4723
+  SoliomHome:
+    platform_name: Android
+    automation_name: UiAutomator2
+    app_package: com.soliom.home.android
+    app_activity: com.soliom.home.android.activity.SplashActivity
+    no_reset: true
+    full_reset: false
+    new_command_timeout: 3600
+    chromedriver_autodownload: true
+    appium_server: http://127.0.0.1:4723

@@ -1,0 +1,45 @@
+# 异常弹窗配置 - 按 App 区分
+apps:
+  Koobird:
+    popups:
+      device:
+        locator:
+          by: "xpath"
+          value: "//android.widget.TextView[@text='发现新设备']"
+        handle_button:
+          by: "xpath"
+          value: "//android.widget.ImageView[@resource-id='com.koobird.android:id/iv_unadd']"
+        action: "暂不添加新设备"
+
+  Koocam:
+    popups:
+      device:
+        locator:
+          by: "xpath"
+          value: "//android.widget.TextView[@text='发现新设备']"
+        handle_button:
+          by: "xpath"
+          value: '//android.widget.ImageView[@resource-id="com.xm.support.android:id/iv_close"]'
+        action: "暂不添加新设备"
+
+  Humbirdy:
+    popups:
+      device:
+        locator:
+          by: "xpath"
+          value: '//android.widget.TextView[@text="发现新设备"]'
+        handle_button:
+          by: "xpath"
+          value: '//android.widget.ImageView[@resource-id="com.birdlife.android:id/iv_unadd"]'
+        action: "暂不添加新设备"
+
+  SoliomHome:
+    popups:
+      device:
+        locator:
+          by: "xpath"
+          value: '//android.widget.TextView[@text="发现新设备"]'
+        handle_button:
+          by: "xpath"
+          value: '//android.widget.ImageView[@resource-id="com.soliom.home.android:id/iv_close"]'
+        action: "暂不添加新设备"

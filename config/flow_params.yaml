@@ -1,0 +1,19 @@
+flows:
+  蓝牙绑定压测:
+    device_sn: "C6212-C6214D2512000056"
+    wifi_ssid: "XM-FFFF"
+    wifi_password: "12345678"
+    binding_timeout: 120
+    loop_count: 50
+
+  出图压测 - 基础流程:
+    device_title: "8413"
+    live_stream_play: 15
+    sleep_control: 10
+    loop_count: 100
+
+  出图 + 进入设置:
+    device_title: "6214-0057"
+    live_stream_play: 20
+    sleep_control: 5
+    loop_count: 30

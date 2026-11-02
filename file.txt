@@ -1,0 +1,11 @@
+# 终端1 后端
+cd D:\appium-platform
+python -m uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+
+# 终端2 前端
+cd D:\appium-platform\frontend
+npm run dev
+
+
+# appium服务
+appium --allow-insecure uiautomator2:chromedriver_autodownload

@@ -1,0 +1,47 @@
+items:
+  binding:
+    enabled: true
+    current_app: Koocam
+    device_udid: adb-RFCX118SCPJ-kjbpmo._adb-tls-connect._tcp
+    description: 蓝牙绑定压测（添加-出图-删除）
+    parameter:
+      device_sn: C9811S-C98RSA2508000010
+      wifi_ssid: Tsquared24
+      wifi_password: Boomer4121365!
+      sleep_control: 5
+      test_count: 100
+  LiveImageUniversal:
+    enabled: false
+    current_app: Koocam
+    device_udid: ''
+    description: 通用出图稳定性压测
+    parameter:
+      device_title: 单机测试
+      sleep_control: '20'
+      live_stream_play: '10'
+      test_count: '1000'
+  KoocamSlidingEvent:
+    enabled: false
+    current_app: Koocam
+    device_udid: adb-RFCX118SCPJ-kjbpmo._adb-tls-connect._tcp
+    description: 时间轴随机滑动播放压测
+    parameter:
+      device_name: 铁架6211-0018
+      swipe_test_count: 100
+      test_count: 1
+  event_video_play:
+    enabled: false
+    current_app: Koocam
+    device_udid: ''
+    description: C6212/C6214 事件播放压测
+    parameter:
+      device_name: '664'
+      test_count: 50
+  9811_event_video_play:
+    enabled: false
+    current_app: Koocam
+    device_udid: ''
+    description: C9811 事件播放压测
+    parameter:
+      device_name: 正式版本
+      test_count: 50
